@@ -30,7 +30,6 @@ public class MathServiceTest extends AbstractMathServiceTest{
     public void checkGetAnswer_DiscriminantMoreZero(String a, String b, String c, double expectedFirst, double expectedSecond) throws NotFoundAnswerException  {
 
         Pair result = getMathService().getAnswer(parseInt(a),parseInt(b),parseInt(c));
-
         assertTrue(result.toString().contains("first="+expectedFirst),"Первый корень рассчитан некорректно");
         assertTrue(result.toString().contains("second="+expectedSecond), "Второй корень рассчитан некорректно");
     }
@@ -66,8 +65,8 @@ public class MathServiceTest extends AbstractMathServiceTest{
 
     @ParameterizedTest
     @CsvSource({
-            "1, -3, 2, 1", //дискриминант 1 x1 = 2, x2 = 1, дискриминант больше 1
-            "3, -26, 5, 616" //дискриминант 576 x1 = 5, x2 = 0.2, дискриминант больше 1
+            "1, -3, 2, 1", //дискриминант 1 x1 = 2, x2 = 1, дискриминант больше 0
+            "3, -26, 5, 616" //дискриминант 576 x1 = 5, x2 = 0.2, дискриминант больше 0
     })
     public void checkPositiveDescriminant(String a, String b, String c, String answer){
         int result = getMathService().getD(parseInt(a),parseInt(b),parseInt(c));
